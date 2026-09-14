@@ -1,39 +1,42 @@
-import Header from "@/components/layout/Header";
 import HeroSection from "@/components/home/HeroSection";
-import CategorySection from "@/components/home/CategorySection";
-import FeaturedCollection from "@/components/home/FeaturedCollection";
-import JewellerySection from "@/components/home/JewellerySection";
-import CompleteLookSection from "@/components/home/CompleteLookSection";
-import EditorialSection from "@/components/home/EditorialSection";
-import HowItWorksSection from "@/components/home/HowItWorksSection";
-import NewsletterSection from "@/components/home/NewsletterSection";
-import HomeCTA from "@/components/home/HomeCTA";
-import Footer from "@/components/layout/Footer";
+import CategoryShowcase from "@/components/home/CategoryShowcase";
+import FeaturedCollections from "@/components/home/FeaturedCollections";
+import JewelryEdit from "@/components/home/JewelryEdit";
+import CompleteTheLook from "@/components/home/CompleteTheLook";
+import OccasionShowcase from "@/components/home/OccasionShowcase";
+import TrendingLooks from "@/components/home/TrendingLooks";
+import HowRentalWorks from "@/components/home/HowRentalWorks";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import InspirationGallery from "@/components/home/InspirationGallery";
+import FinalCTASection from "@/components/home/FinalCTASection";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-black">
-      <Header />
-
+    <>
       <HeroSection />
 
-      <CategorySection />
+      <CategoryShowcase />
 
-      <FeaturedCollection />
+      <FeaturedCollections />
 
-      <JewellerySection />
+      <JewelryEdit />
 
-      <CompleteLookSection />
+      <CompleteTheLook />
 
-      <EditorialSection />
+      <OccasionShowcase />
 
-      <HowItWorksSection />
+      <TrendingLooks />
 
-      <NewsletterSection />
+      <HowRentalWorks />
 
-      <HomeCTA />
+      <WhyChooseUs />
 
-      <Footer />
-    </main>
+      <TestimonialsSection />
+
+      <InspirationGallery />
+
+      <FinalCTASection />
+    </>
   );
 }

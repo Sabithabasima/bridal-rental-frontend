@@ -1,251 +1,131 @@
 import Link from "next/link";
-
-const navigation = {
-  shop: [
-    {
-      label: "Bridal Wear",
-      href: "/bridal-wear",
-    },
-    {
-      label: "Jewellery",
-      href: "/jewellery",
-    },
-    {
-      label: "Collections",
-      href: "/collections",
-    },
-    {
-      label: "Complete the Look",
-      href: "/collections/complete-look",
-    },
-  ],
-  about: [
-    {
-      label: "Our Story",
-      href: "/about",
-    },
-    {
-      label: "How It Works",
-      href: "/#how-it-works",
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-    },
-    {
-      label: "FAQs",
-      href: "/faq",
-    },
-  ],
-  customer: [
-    {
-      label: "My Account",
-      href: "/account",
-    },
-    {
-      label: "Wishlist",
-      href: "/wishlist",
-    },
-    {
-      label: "My Rentals",
-      href: "/account/rentals",
-    },
-    {
-      label: "Rental Guide",
-      href: "/rental-guide",
-    },
-  ],
-};
+import { footerNavigation } from "@/config/navigation";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-[#681C2C] text-[#FFF8EF]">
       {/* Main Footer */}
-      <div className="px-6 py-16 sm:px-10 sm:py-20 lg:px-16 lg:py-24">
-        <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-12 lg:gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-4">
-            <Link
-              href="/"
-              className="inline-block font-serif text-3xl tracking-[0.25em]"
-            >
-              AURELIA
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          {/* Brand Section */}
+          <div>
+            <Link href="/" className="inline-flex flex-col leading-none">
+              <span className="font-serif text-3xl font-semibold tracking-[0.08em]">
+                AURELIA
+              </span>
+
+              <span className="mt-2 text-[9px] uppercase tracking-[0.32em] text-[#D8B879]">
+                The Bridal Edit
+              </span>
             </Link>
 
-            <p className="mt-6 max-w-sm text-sm leading-7 text-neutral-400">
-              Curated bridal wear and jewellery for unforgettable moments.
-              Discover your look, reserve your pieces and make your moment
-              entirely your own.
+            <p className="mt-6 max-w-sm text-sm leading-7 text-[#EBD8D5]">
+              Timeless bridal fashion, thoughtfully curated for your most
+              unforgettable moments. Rent your dream look without compromise.
             </p>
 
-            {/* Social Links */}
-            <div className="mt-8 flex items-center gap-6">
-              <Link
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-white"
-              >
-                Instagram
-              </Link>
-
-              <Link
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-white"
-              >
-                Facebook
-              </Link>
-
-              <Link
-                href="https://pinterest.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 transition-colors hover:text-white"
-              >
-                Pinterest
-              </Link>
-            </div>
+            <Link
+              href="/catalog"
+              className="mt-7 inline-flex items-center rounded-full border border-[#D8B879] px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#F4D9A6] transition hover:bg-[#D8B879] hover:text-[#681C2C]"
+            >
+              Explore Collection
+            </Link>
           </div>
 
-          {/* Shop */}
-          <div className="lg:col-span-2 lg:col-start-6">
-            <h3 className="text-[10px] font-medium uppercase tracking-[0.25em] text-neutral-500">
-              Shop
+          {/* Shop Links */}
+          <div>
+            <h3 className="font-serif text-xl text-[#F4D9A6]">Shop</h3>
+
+            <ul className="mt-5 space-y-3">
+              {footerNavigation.shop.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[#EBD8D5] transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Customer Care Links */}
+          <div>
+            <h3 className="font-serif text-xl text-[#F4D9A6]">
+              Customer Care
             </h3>
 
-            <nav className="mt-6 flex flex-col gap-4">
-              {navigation.shop.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="w-fit text-sm text-neutral-300 transition-colors hover:text-white"
-                >
-                  {item.label}
-                </Link>
+            <ul className="mt-5 space-y-3">
+              {footerNavigation.customerCare.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[#EBD8D5] transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
               ))}
-            </nav>
+            </ul>
           </div>
 
-          {/* About */}
-          <div className="lg:col-span-2">
-            <h3 className="text-[10px] font-medium uppercase tracking-[0.25em] text-neutral-500">
-              AURELIA
-            </h3>
+          {/* Company Links */}
+          <div>
+            <h3 className="font-serif text-xl text-[#F4D9A6]">Our World</h3>
 
-            <nav className="mt-6 flex flex-col gap-4">
-              {navigation.about.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="w-fit text-sm text-neutral-300 transition-colors hover:text-white"
-                >
-                  {item.label}
-                </Link>
+            <ul className="mt-5 space-y-3">
+              {footerNavigation.company.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-[#EBD8D5] transition hover:text-white"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
               ))}
-            </nav>
-          </div>
+            </ul>
 
-          {/* Customer */}
-          <div className="lg:col-span-2">
-            <h3 className="text-[10px] font-medium uppercase tracking-[0.25em] text-neutral-500">
-              Customer
-            </h3>
-
-            <nav className="mt-6 flex flex-col gap-4">
-              {navigation.customer.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="w-fit text-sm text-neutral-300 transition-colors hover:text-white"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </div>
-
-        {/* Contact */}
-        <div className="mt-16 border-t border-neutral-800 pt-10 lg:mt-20">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-neutral-500">
-                Email
+            <div className="mt-8">
+              <p className="text-xs uppercase tracking-[0.18em] text-[#D8B879]">
+                Need assistance?
               </p>
 
-              <a
-                href="mailto:hello@aureliabridal.com"
-                className="mt-3 block text-sm text-neutral-300 transition-colors hover:text-white"
+              <Link
+                href="/contact"
+                className="mt-2 inline-block text-sm text-white underline decoration-[#D8B879] underline-offset-4"
               >
-                hello@aureliabridal.com
-              </a>
-            </div>
-
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-neutral-500">
-                Phone
-              </p>
-
-              <a
-                href="tel:+919999999999"
-                className="mt-3 block text-sm text-neutral-300 transition-colors hover:text-white"
-              >
-                +91 99999 99999
-              </a>
-            </div>
-
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-neutral-500">
-                Studio
-              </p>
-
-              <p className="mt-3 text-sm leading-6 text-neutral-300">
-                Kerala, India
-              </p>
+                Talk to our bridal team
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Footer */}
-      <div className="border-t border-neutral-800 px-6 py-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col gap-5 text-[10px] uppercase tracking-[0.18em] text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} AURELIA. All rights reserved.
+      {/* Footer Bottom */}
+      <div className="border-t border-white/15">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 text-center sm:px-6 md:flex-row md:items-center md:justify-between md:text-left lg:px-8">
+          <p className="text-xs text-[#EBD8D5]">
+            © {new Date().getFullYear()} Aurelia. All rights reserved.
           </p>
 
-          <div className="flex gap-6">
+          <div className="flex items-center justify-center gap-5 text-xs text-[#EBD8D5]">
             <Link
-              href="/privacy"
-              className="transition-colors hover:text-neutral-300"
+              href="/privacy-policy"
+              className="transition hover:text-white"
             >
-              Privacy
+              Privacy Policy
             </Link>
 
             <Link
               href="/terms"
-              className="transition-colors hover:text-neutral-300"
+              className="transition hover:text-white"
             >
-              Terms
-            </Link>
-
-            <Link
-              href="/shipping"
-              className="transition-colors hover:text-neutral-300"
-            >
-              Shipping & Returns
+              Terms & Conditions
             </Link>
           </div>
         </div>
-      </div>
-
-      {/* Large Brand Mark */}
-      <div className="overflow-hidden px-6 pb-4 sm:px-10 lg:px-16">
-        <p className="select-none text-center font-serif text-[17vw] leading-[0.7] tracking-[-0.05em] text-neutral-900">
-          AURELIA
-        </p>
       </div>
     </footer>
   );
